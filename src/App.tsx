@@ -1,14 +1,22 @@
 import React from 'react';
-import TopNav from './components/topNav';
+import HomePage from './pages/HomePage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
+import TopNav from './components/TopNav';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <TopNav></TopNav>
-      <blockquote cite="Benjamin Franklin">
-        Tell me and I forget, teach me and I may remember, involve me and I learn.
-      </blockquote>
-    </div>
+    <Router>
+      <TopNav/>
+      <div>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/projects" element={<ProjectsPage/>}/>
+          <Route path="/contact" element={<ContactPage/>}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
