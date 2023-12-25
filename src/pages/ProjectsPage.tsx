@@ -1,6 +1,3 @@
-import React from 'react';
-import TopNav from '../components/TopNav';
-
 function ProjectsPage() {
   return (
     <div>

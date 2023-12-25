@@ -9,21 +9,20 @@ function TopNav() {
     let navigate = useNavigate();
 
     const appBarStyle = {
-        backgroundColor: 'black',
+        backgroundColor: '#ced2ba',
         borderBottom: 'none',
+        border: 0,
     };
 
     const buttonStyle = {
-        color: 'inherit',
-        backgroundColor:'black',
-        fontFamily: 'Courier New, Courier, monospace',
+        color: 'rgb(53, 71, 43)',
+        backgroundColor:'#ced2ba',
         padding: 25,
     };
 
     const hoverStyle = {
-        color: 'lightgray',
-        backgroundColor:'black',
-        fontFamily: 'Courier New, Courier, monospace',
+        color: 'black',
+        backgroundColor:'#ced2ba',
         padding: 25,
     };
 
@@ -64,7 +63,7 @@ function TopNav() {
     
 
     return (
-      <AppBar position='static' style={appBarStyle}>
+      <AppBar position='static' style={appBarStyle} elevation={0}>
         <Toolbar style={centerToolbarStyle}>
             <Button 
                 style={homeStyle}

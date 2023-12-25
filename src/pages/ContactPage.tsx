@@ -1,12 +1,8 @@
-import React from 'react';
-import TopNav from '../components/TopNav';
 
 function ContactPage() {
   return (
     <div>
-      <blockquote cite="Benjamin Franklin">
-        This is the contact page.
-      </blockquote>
+      This is the contact page.
     </div>
   );
 }
