@@ -1,5 +1,11 @@
 import profile_photo from '../assets/profile_photo.jpeg';
 import { TypeAnimation } from 'react-type-animation';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import IconButton from '@mui/material/IconButton';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function HomePage() {
 
@@ -15,6 +21,21 @@ function HomePage() {
     greetingSequence.push("Good evening!");
   }
   greetingSequence.push(1500);
+
+  const handleEmailClick = () => {
+    navigator.clipboard.writeText("kennyyuyang.chen@mail.utoronto.ca");
+    toast.success('Email copied to clipboard!', {
+      style: {
+        border: '1px solid #713200',
+        padding: '16px',
+        color: '#713200',
+      },
+      iconTheme: {
+        primary: '#713200',
+        secondary: '#FFFAEE',
+      },
+    });
+  }
 
   const headerStyles = {
     color: '#415B41',
@@ -37,7 +58,8 @@ function HomePage() {
   
   const profilePhotoAndLogosDiv = {
     marginTop: 120,
-    paddingRight: 12,
+    paddingRight: 36,
+    alignItems: 'center',
   }
 
   const flexBoxDisplay = {
@@ -50,8 +72,19 @@ function HomePage() {
     paddingTop: 128
   }
 
+  const iconsDisplay = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
+  const iconStyle = {
+    color: '#415B41',
+  }
+
   return (
     <div style={flexBoxDisplay}>
+      <div><Toaster/></div>
       <div style={textBoxDisplay}>
       <header>
         <TypeAnimation 
@@ -67,7 +100,18 @@ function HomePage() {
       </body>
       </div>
       <div style={profilePhotoAndLogosDiv}>
-      <img src={profile_photo} style={profilePhotoStyles}/>
+        <img src={profile_photo} style={profilePhotoStyles}/>
+        <div style={iconsDisplay}>
+          <IconButton href="https://github.com/ychen5601">
+            <GitHubIcon style={iconStyle}/>
+          </IconButton>
+          <IconButton href="https://www.linkedin.com/in/yu-yang-chen-229115231/">
+            <LinkedInIcon style={iconStyle}/>
+          </IconButton>
+          <IconButton onClick={handleEmailClick}>
+            <EmailIcon style={iconStyle}/>
+          </IconButton>
+        </div>
       </div>
     </div>
   );
