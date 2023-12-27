@@ -66,10 +66,12 @@ function HomePage() {
     display: 'flex', 
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginRight: 'auto',
   }
   
   const textBoxDisplay = {
-    paddingTop: 128
+    paddingTop: 128,
+    flex: 1,
   }
 
   const iconsDisplay = {
