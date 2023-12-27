@@ -1,6 +1,5 @@
-import { CardContent, Typography, CardActions, Button, CardMedia, IconButton } from '@mui/material';
+import { CardMedia, IconButton } from '@mui/material';
 import Card from '@mui/material/Card';
-import WebsiteLogo from '../assets/website-photo.png';
 import GitHubLogo from '@mui/icons-material/GitHub';
 
 type ProjectCardProps = {
