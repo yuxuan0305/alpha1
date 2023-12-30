@@ -1,22 +1,24 @@
-import { CardMedia, IconButton } from '@mui/material';
+import { useState } from 'react';
+import { CardMedia, IconButton, CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
 import GitHubLogo from '@mui/icons-material/GitHub';
 
+
 type ProjectCardProps = {
-    title: string;
-    description: string;
-    imageUrl: string;
-    githubUrl: string;
+    project: any,
 };
 
-function ProjectCard({ title, description, imageUrl, githubUrl }: ProjectCardProps) {
+function ProjectCard({ project }: ProjectCardProps) {
+
+    const [raised, setRaised] = useState(false);
 
     const cardStyle = {
         width: 280,
         height: 380,
         backgroundColor: "#6B5B51",
-        elevation: 0,
         borderRadius: 15,
+        transition: "all 0.3s ease",
+        transform: raised ? 'scale(1.03)' : 'scale(1)'
     };
 
     const imageContainerStyle = {
@@ -24,8 +26,7 @@ function ProjectCard({ title, description, imageUrl, githubUrl }: ProjectCardPro
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-
-    }
+    };
 
     const imageStyle = {
         borderRadius: 100,
@@ -37,42 +38,38 @@ function ProjectCard({ title, description, imageUrl, githubUrl }: ProjectCardPro
         paddingTop: 20,
         fontSize: 20,
         color: "#DDDAD3",
-        marginLeft: 5,
-    }
+        marginLeft: 8,
+    };
 
     const bodyStyle = {
         color: "#DDDAD3",
         fontSize: 16,
-        marginLeft: 5,
-        marginRight: 5,
-    }
-
-    const iconButtonStyle = {
-        height: 30,
-        width: 30,
-        color: "#DDDAD3"
+        marginLeft: 8,
+        marginRight: 8,
     }
 
     return (
-        <Card style={cardStyle}>
+        <Card 
+        style={cardStyle}
+        elevation={raised ? 10 : 0}
+        onMouseEnter={() => setRaised(true)}
+        onMouseLeave={() => setRaised(false)}
+        onMouseDown={() => setRaised(false)}
+        onMouseUp={() => setRaised(true)}
+        >
             <div style={imageContainerStyle}>
                 <CardMedia
                     component="img"
-                    image={imageUrl}
-                    alt={title}
+                    image={project.imageUrl}
+                    alt={project.title}
                     style={imageStyle}/>
             </div>
             <header style={headerStyle}>
-                {title}
+                {project.title}
             </header>
             <p style={bodyStyle}>
-                {description}
+                {project.shortDesc}
             </p>
-            <div>
-                <IconButton style={iconButtonStyle} href={githubUrl} target="_blank">
-                    <GitHubLogo/>
-                </IconButton>
-            </div>
       </Card>
     );
 }
