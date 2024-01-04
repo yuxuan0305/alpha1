@@ -87,7 +87,7 @@ function HomePage() {
   const flexBoxDisplay = {
     display: 'flex', 
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     marginRight: 'auto',
   }
   
@@ -111,38 +111,7 @@ function HomePage() {
 
   return (
     <div style={flexBoxDisplay}>
-      <div><Toaster/></div>
-      <div style={textBoxDisplay}>
-      <header>
-        <TypeAnimation 
-        sequence={greetingSequence}
-        speed={30}
-        repeat={Infinity}
-        style={headerStyles}/>
-      </header>
-      <body style={bodyStyles}>
-        My name is Kenny.
-        <br/>
-        I am a 4th year student at the University of Toronto studying Computer Science.
-      </body>
-      </div>
-      <div style={profilePhotoAndLogosDiv}>
-        <img src={profile_photo} style={profilePhotoStyles}/>
-        <div style={iconsDisplay}>
-          <IconButton href="https://github.com/ychen5601" target="_blank">
-            <GitHubIcon style={iconStyle}/>
-          </IconButton>
-          <IconButton href="https://www.linkedin.com/in/yu-yang-chen-229115231/" target="_blank">
-            <LinkedInIcon style={iconStyle}/>
-          </IconButton>
-          <IconButton onClick={handleEmailClick}>
-            <EmailIcon style={iconStyle}/>
-          </IconButton>
-          <IconButton onClick={handleResumeClick}>
-            <DescriptionIcon style={iconStyle}/>
-          </IconButton>
-        </div>
-      </div>
+      This is the home page.
     </div>
   );
 }

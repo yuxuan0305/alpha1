@@ -43,22 +43,7 @@ function ProjectsPage() {
 
   return (
     <div style={viewStyle}>
-      <div style={cardContainer}>
-        {projects.map((project, index) => (
-          <div>
-          <CardActionArea style={cardActionStyle} onClick={() => handleOpen(index)} disableRipple>
-              <ProjectCard
-              key={index}
-              project={project}/>
-          </CardActionArea>
-          {openModalId === index &&
-            <ProjectDialog
-            open={openModalId === index}
-            onClose={handleClose}
-            project={project}/>}
-        </div>
-        ))}
-      </div>
+      This is the product page.
     </div>
   );
 }
