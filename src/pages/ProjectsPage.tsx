@@ -1,8 +1,4 @@
-import ProjectCard from "../components/ProjectCard";
-import projects from "../assets/projectsData";
-import { CardActionArea } from "@mui/material";
 import { useState } from "react";
-import ProjectDialog from "../components/ProjectDialog";
 
 function ProjectsPage() {
 
@@ -43,22 +39,7 @@ function ProjectsPage() {
 
   return (
     <div style={viewStyle}>
-      <div style={cardContainer}>
-        {projects.map((project, index) => (
-          <div>
-          <CardActionArea style={cardActionStyle} onClick={() => handleOpen(index)} disableRipple>
-              <ProjectCard
-              key={index}
-              project={project}/>
-          </CardActionArea>
-          {openModalId === index &&
-            <ProjectDialog
-            open={openModalId === index}
-            onClose={handleClose}
-            project={project}/>}
-        </div>
-        ))}
-      </div>
+      This is the product page.
     </div>
   );
 }
