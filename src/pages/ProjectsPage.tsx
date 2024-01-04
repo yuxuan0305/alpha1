@@ -1,8 +1,4 @@
-import ProjectCard from "../components/ProjectCard";
-import projects from "../assets/projectsData";
-import { CardActionArea } from "@mui/material";
 import { useState } from "react";
-import ProjectDialog from "../components/ProjectDialog";
 
 function ProjectsPage() {
 
