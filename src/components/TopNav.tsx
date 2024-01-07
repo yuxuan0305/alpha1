@@ -10,6 +10,7 @@ import { Language } from '@mui/icons-material';
 function TopNav() {
 
     let navigate = useNavigate();
+    let location = useLocation();
 
     const logoStyle = {
         height: 82,
@@ -73,8 +74,8 @@ function TopNav() {
     const handleProjectsClick = () => {
         navigate('/projects');}
 
-    const handleContactMouseMove = () => {
-        setIsContactHovered(!isContactHovered);
+    const handleAboutMouseMove = () => {
+        setIsAboutHovered(!isAboutHovered);
     }
 
     const handleCareerMouseMove = () => {
