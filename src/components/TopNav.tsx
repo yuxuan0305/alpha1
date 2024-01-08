@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import LanguageIcon from '@mui/icons-material/Language';
-import { Language } from '@mui/icons-material';
+import AboutDropdown from './AboutDropdown';
 
 function TopNav() {
 
@@ -85,16 +85,20 @@ function TopNav() {
 
     const handleCareerClick = () => {navigate("/career");}
 
+    const iconContainerStyle = {
+        display: "flex",
+        justifyContent: "flex-end",
+    }
+
     const languageIconStyle = {
         color:"black",
         marginRight: 8,
-        paddingLeft: 180
     }
 
     const languageIconHoverStyle = {
         color: "rgb(0, 158, 164)",
         marginRight: 8,
-        paddingLeft: 180,
+        alignItems: 'right',
     }
 
     const handleLanguageMouseMove = () => {
@@ -108,46 +112,60 @@ function TopNav() {
       <AppBar position='static' style={appBarStyle} elevation={0}>
         <Toolbar style={{...centerToolbarStyle, textTransform: 'none' }}>
             <img src={logo} style={logoStyle}/>
-            <Button 
-                style={homeStyle}
-                onMouseEnter={handleHomeMouseMove}
-                onMouseLeave={handleHomeMouseMove}
-                onClick={handleHomeClick}
-                disableTouchRipple
-            >
-                Company
-            </Button>
-            <Button 
-                style={projectsStyle}
-                onMouseEnter={handleProjectsMouseMove}
-                onMouseLeave={handleProjectsMouseMove}
-                onClick={handleProjectsClick}
-                disableTouchRipple
-            >
-                Product
-            </Button>
-            <Button
-                style={ContactStyle}
-                onMouseEnter={handleContactMouseMove}
-                onMouseLeave={handleContactMouseMove}
-                onClick={handleCareerClick}
-                disableTouchRipple
-            >
-                Careers
-            </Button>
-            <Button
-                style={careerStyle}
-                onMouseEnter={handleCareerMouseMove}
-                onMouseLeave={handleCareerMouseMove}
-                onClick={handleContactClick}
-                disableTouchRipple
-            >
-                Contact
-            </Button>
-            <LanguageIcon
-                style={languageStyle}
-                onMouseEnter={handleLanguageMouseMove}
-                onMouseLeave={handleLanguageMouseMove}/>
+            <div style={{ position: 'relative' }}>
+                <Button 
+                    style={homeStyle}
+                    onMouseEnter={handleHomeMouseMove}
+                    onMouseLeave={handleHomeMouseMove}
+                    onClick={handleHomeClick}
+                    disableTouchRipple
+                >
+                    Company
+                </Button>
+                {isHomeHovered && <AboutDropdown/>}
+            </div>
+            <div style={{ position: 'relative' }}>
+                <Button 
+                    style={projectsStyle}
+                    onMouseEnter={handleProjectsMouseMove}
+                    onMouseLeave={handleProjectsMouseMove}
+                    onClick={handleProjectsClick}
+                    disableTouchRipple
+                >
+                    Product
+                </Button>
+                {isProjectsHovered && <AboutDropdown/>}
+            </div>
+            <div style={{ position: 'relative' }}>
+                <Button
+                    style={careerStyle}
+                    onMouseEnter={handleCareerMouseMove}
+                    onMouseLeave={handleCareerMouseMove}
+                    onClick={handleCareerClick}
+                    disableTouchRipple
+                >
+                    Careers
+                </Button>
+                {isCareersHovered && <AboutDropdown/>}
+            </div>
+            <div style={{ position: 'relative' }}>
+                <Button
+                    style={ContactStyle}
+                    onMouseEnter={handleContactMouseMove}
+                    onMouseLeave={handleContactMouseMove}
+                    onClick={handleContactClick}
+                    disableTouchRipple
+                >
+                    Contact
+                </Button>
+                {isContactHovered && <AboutDropdown/>}
+            </div>
+            <div style={iconContainerStyle}>
+                <LanguageIcon
+                    style={languageStyle}
+                    onMouseEnter={handleLanguageMouseMove}
+                    onMouseLeave={handleLanguageMouseMove}/>
+            </div>
         </Toolbar>
       </AppBar>
     );
